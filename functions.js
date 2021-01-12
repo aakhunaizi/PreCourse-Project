@@ -18,11 +18,18 @@
  * sumOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]) -> 25
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
-function sumOdds(numbers) {
-  // Your code here
-}
 
-// console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
+// function sumOdds(numbers) {
+//   // Your code here
+// }
+
+const sumOdds = (numbers) => {
+  let sum = 0;
+  numbers.filter((number) => {
+    if (number % 2 !== 0) sum += number;
+  });
+  return sum;
+};
 
 /**
  * characterCount(string, c):
@@ -36,11 +43,19 @@ function sumOdds(numbers) {
  *
  * Hint: Use string methods to make it case-insensitive
  */
-function characterCount(string, c) {
-  // Your code here
-}
 
-// console.log(characterCount("Character Count is clever", "c"));
+// function characterCount(string, c) {
+//   // Your code here
+// }
+
+const characterCount = (string, c) => {
+  let numberOfOccurences = 0;
+
+  for (let character of string) {
+    if (character.toLowerCase() === c) numberOfOccurences++;
+  }
+  return numberOfOccurences;
+};
 
 /**
  * differences(numbers):
@@ -57,11 +72,17 @@ function characterCount(string, c) {
  *
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
-function differences(numbers) {
-  // Your code here
-}
+// function differences(numbers) {
+//   // Your code here
+// }
 
-// console.log(differences([11, 35, 52, 14, 56]));
+const differences = (numbers) => {
+  let difference = [];
+  for (let i = 1; i < numbers.length; i++) {
+    difference.push(numbers[i] - numbers[i - 1]);
+  }
+  return difference;
+};
 
 /**
  * largestIncrement(numbers):
@@ -79,12 +100,13 @@ function differences(numbers) {
  *
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
-function largestIncrement(numbers) {
-  // Your code here
-}
+// function largestIncrement(numbers) {
+//   // Your code here
+// }
 
-// console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
-
+const largestIncrement = (numbers) => {
+  return Math.max(...differences(numbers));
+};
 /**
  * afterX(numbers, x):
  * - receives an array of numbers, and a number `x`.
@@ -96,11 +118,14 @@ function largestIncrement(numbers) {
  * afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) -> [4, 5, 6, 7, 8, 9]
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
-function afterX(numbers, x) {
-  // Your code here
-}
+// function afterX(numbers, x) {
+//   // Your code here
+// }
 
-// console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+const afterX = (numbers, x) => {
+  const theNumber = numbers.findIndex((number) => number === x);
+  return numbers.slice(theNumber + 1);
+};
 
 /**
  * abbreviate(firstName, lastName):
@@ -113,11 +138,13 @@ function afterX(numbers, x) {
  *
  * Hint: Use string method .toUpperCase()
  */
-function abbreviate(firstName, lastName) {
-  // Your code here
-}
+// function abbreviate(firstName, lastName) {
+//   // Your code here
+// }
 
-// console.log(abbreviate("miss", "Stephane"));
+const abbreviate = (firstName, lastName) => {
+  return `${firstName[0]}${lastName[0]}`.toUpperCase();
+};
 
 /**
  * isUpperCase(string):
@@ -129,11 +156,13 @@ function abbreviate(firstName, lastName) {
  * isUpperCase("JCREW") -> true
  *
  */
-function isUpperCase(string) {
-  // Your code here
-}
+// function isUpperCase(string) {
+//   // Your code here
+// }
 
-// console.log(isUpperCase("JCREW"));
+const isUpperCase = (string) => {
+  return string === string.toUpperCase();
+};
 
 /**
  * elementInArray(numbers, x):
@@ -145,11 +174,13 @@ function isUpperCase(string) {
  * elementInArray([5, 6, 7], 8) -> false
  *
  */
-function elementInArray(numbers, x) {
-  // Your code here
-}
+// function elementInArray(numbers, x) {
+//   // Your code here
+// }
 
-// console.log(elementInArray([5, 6, 7], 8));
+const elementInArray = (numbers, x) => {
+  return numbers.includes(x);
+};
 
 /**
  * reverseString(string):
@@ -161,10 +192,22 @@ function elementInArray(numbers, x) {
  * reverseString("CODED") -> "DEDOC"
  *
  */
-function reverseString(string) {
-  // Your code here
-}
+// function reverseString(string) {
+//   // Your code here
+// }
 
+const reverseString = (string) => {
+  return string.split("").reverse().join("");
+};
+
+// console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
+// console.log(characterCount("Character Count is clever", "c"));
+// console.log(differences([11, 35, 52, 14, 56]));
+// console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
+// console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+// console.log(abbreviate("miss", "Stephane"));
+// console.log(isUpperCase("JCREW"));
+// console.log(elementInArray([4, 5, 6, 7], 8));
 // console.log(reverseString("CODED"));
 
 module.exports = {
